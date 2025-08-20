@@ -3,6 +3,8 @@ shader_type canvas_item;
 #include "res://shaders/debug_utils.gdshaderinc"
 #include "res://shaders/character.gdshaderinc"
 
+#define BREATH_PACE 4.0
+
 uniform sampler2D zebra_simpler2d;
 
 group_uniforms examples_bool;
@@ -19,7 +21,7 @@ void apply_zombie_zebra_tex(inout vec3 c, vec2 uv, sampler2D tex, sampler2D seco
 }
 
 void vertex() {
-	breath(VERTEX, 4.0);
+	breath(VERTEX, BREATH_PACE);
 }
 
 void fragment() {
