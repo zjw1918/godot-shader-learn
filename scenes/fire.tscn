@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdmet7txm1w34"]
+
+[ext_resource type="Script" uid="uid://6rlvmdaxii7o" path="res://scenes/fire.gd" id="1_rach5"]
+[ext_resource type="Shader" uid="uid://fp8ni8578gjx" path="res://scenes/fire.gdshader" id="1_xqmqg"]
+[ext_resource type="Texture2D" uid="uid://rbw8otgd4ifl" path="res://icon.svg" id="2_g5mbl"]
+
+[sub_resource type="Gradient" id="Gradient_xqmqg"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g5mbl"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rach5"]
+seamless = true
+color_ramp = SubResource("Gradient_xqmqg")
+noise = SubResource("FastNoiseLite_g5mbl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xqmqg"]
+shader = ExtResource("1_xqmqg")
+shader_parameter/unit_range = 1.0
+shader_parameter/input_noise = SubResource("NoiseTexture2D_rach5")
+shader_parameter/fire_c_a = Color(1, 1, 0, 1)
+shader_parameter/fire_c_b = Color(1, 0.2, 0, 1)
+
+[node name="Fire" type="Node2D"]
+script = ExtResource("1_rach5")
+
+[node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_xqmqg")
+position = Vector2(301, 106)
+texture = ExtResource("2_g5mbl")

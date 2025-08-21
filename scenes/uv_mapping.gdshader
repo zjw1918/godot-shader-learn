@@ -9,14 +9,14 @@ void vertex() {
 
 void fragment() {
 	vec4 noise_tex = texture(noise, UV);
-	
+
 	float columns = 2.0;
 	float x = mod(TIME, 1.0);
 	float easing = texture(anim_graph, vec2(x, 1.0)).r;
-	
+
 	vec2 tiled_uv = mod(UV * columns + easing + noise_tex.r *.1, 1.0);
 	vec4 mapped_tex = texture(TEXTURE, tiled_uv);
-	
+
 	COLOR = mix(noise_tex, mapped_tex, .9);
 }
 
