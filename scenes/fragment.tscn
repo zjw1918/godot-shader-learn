@@ -1,0 +1,31 @@
+[gd_scene load_steps=9 format=3 uid="uid://bl5kcd1ke4w58"]
+
+[ext_resource type="Shader" uid="uid://bel1sklj3n4j7" path="res://scenes/uv_mapping.gdshader" id="1_70kku"]
+[ext_resource type="Texture2D" uid="uid://rbw8otgd4ifl" path="res://icon.svg" id="2_wu1tc"]
+
+[sub_resource type="Curve" id="Curve_70kku"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wu1tc"]
+curve = SubResource("Curve_70kku")
+
+[sub_resource type="Gradient" id="Gradient_70kku"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wu1tc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sk14s"]
+color_ramp = SubResource("Gradient_70kku")
+noise = SubResource("FastNoiseLite_wu1tc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sk14s"]
+shader = ExtResource("1_70kku")
+shader_parameter/anim_graph = SubResource("CurveTexture_wu1tc")
+shader_parameter/noise = SubResource("NoiseTexture2D_sk14s")
+
+[node name="uv_example" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_sk14s")
+position = Vector2(290, 171)
+texture = ExtResource("2_wu1tc")
