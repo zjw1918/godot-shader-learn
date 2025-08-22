@@ -15,7 +15,7 @@ noise = SubResource("FastNoiseLite_g5mbl")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xqmqg"]
 shader = ExtResource("1_xqmqg")
-shader_parameter/unit_range = 1.0
+shader_parameter/UNIT_RANGE = 1.0
 shader_parameter/input_noise = SubResource("NoiseTexture2D_rach5")
 shader_parameter/fire_c_a = Color(1, 1, 0, 1)
 shader_parameter/fire_c_b = Color(1, 0.2, 0, 1)

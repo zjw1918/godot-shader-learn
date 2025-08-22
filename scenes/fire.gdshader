@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform float unit_range: hint_range(0.0, 1.0);
+uniform float UNIT_RANGE: hint_range(0.0, 1.0);
 uniform sampler2D input_noise: repeat_enable;
 uniform vec4 fire_c_a: source_color = vec4(1.0, 1.0, 0.0, 1.0);
 uniform vec4 fire_c_b: source_color = vec4(1.0, 0.2, 0.0, 1.0);
@@ -21,7 +21,14 @@ void fragment() {
 	
 	//fire_c *= UV.y;
 	// we need dense fire at the bottom, less dense at the top
-	COLOR = mix(heat_tex, fire_c, step(0.264, UV.y * noise_tex.r));
+	// 1. denser fire at the bottom
+	// 2. make top fire more transparent
+	float heat_fire_ratio = step(noise_tex.r, UV.y) * UV.y + .05;
+	COLOR = mix(
+		heat_tex,
+		fire_c, heat_fire_ratio);
+	// make coners round
+	COLOR.a = heat_tex.a;
 }
 
 //void light() {
