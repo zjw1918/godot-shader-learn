@@ -1,0 +1,31 @@
+[gd_scene load_steps=9 format=3 uid="uid://bc58yups5xwrv"]
+
+[ext_resource type="Shader" uid="uid://d0qfwsqrbx4lo" path="res://hero.gdshader" id="1_yvbpl"]
+[ext_resource type="Texture2D" uid="uid://fhpbvjonhxwp" path="res://character/hero.png" id="2_06baw"]
+
+[sub_resource type="Gradient" id="Gradient_yvbpl"]
+colors = PackedColorArray(0.376471, 0, 0, 1, 1, 0, 0.109804, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_06baw"]
+gradient = SubResource("Gradient_yvbpl")
+
+[sub_resource type="Gradient" id="Gradient_mv13s"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w7pyx"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y2sko"]
+color_ramp = SubResource("Gradient_mv13s")
+noise = SubResource("FastNoiseLite_w7pyx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mv13s"]
+shader = ExtResource("1_yvbpl")
+shader_parameter/dmg_progress = 1.0
+shader_parameter/blood_noise = SubResource("NoiseTexture2D_y2sko")
+shader_parameter/blood_grad = SubResource("GradientTexture2D_06baw")
+
+[node name="hero" type="Node2D"]
+
+[node name="Hero" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_mv13s")
+position = Vector2(192, 88)
+texture = ExtResource("2_06baw")

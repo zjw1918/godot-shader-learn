@@ -3,9 +3,8 @@ extends Node2D
 
 @export_tool_button("export image")
 var export_sprit_to_image = func ():
-	save_sprit_to_png("res://a.png")
-
-@onready var character_image: Sprite2D = $tanjilo
+	#save_sprit_to_png("res://a.png")
+	pass
 
 func _ready() -> void:
 	print('on ready...')
@@ -13,9 +12,9 @@ func _ready() -> void:
 func run_a():
 	print('run a...')
 	
-func save_sprit_to_png(path: String):
+func save_sprit_to_png(sprit: Sprite2D, path: String):
 	print('run save_sprit_to_png...')
-	var tex = character_image.texture
+	var tex = sprit.texture
 	print('run save_sprit_to_png...', tex)
 	
 	var image = tex.get_image()
