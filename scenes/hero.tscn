@@ -19,9 +19,9 @@ noise = SubResource("FastNoiseLite_w7pyx")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mv13s"]
 shader = ExtResource("1_yvbpl")
-shader_parameter/dmg_progress = 0.0
 shader_parameter/blood_noise = SubResource("NoiseTexture2D_y2sko")
 shader_parameter/blood_grad = SubResource("GradientTexture2D_06baw")
+shader_parameter/dmg_progress = 1.0
 
 [node name="hero" type="Node2D"]
 
