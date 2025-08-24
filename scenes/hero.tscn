@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bc58yups5xwrv"]
 
-[ext_resource type="Shader" uid="uid://d0qfwsqrbx4lo" path="res://hero.gdshader" id="1_yvbpl"]
+[ext_resource type="Shader" uid="uid://d0qfwsqrbx4lo" path="res://scenes/hero.gdshader" id="1_yvbpl"]
 [ext_resource type="Texture2D" uid="uid://fhpbvjonhxwp" path="res://character/hero.png" id="2_06baw"]
 
 [sub_resource type="Gradient" id="Gradient_yvbpl"]
@@ -19,7 +19,7 @@ noise = SubResource("FastNoiseLite_w7pyx")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mv13s"]
 shader = ExtResource("1_yvbpl")
-shader_parameter/dmg_progress = 1.0
+shader_parameter/dmg_progress = 0.0
 shader_parameter/blood_noise = SubResource("NoiseTexture2D_y2sko")
 shader_parameter/blood_grad = SubResource("GradientTexture2D_06baw")
 

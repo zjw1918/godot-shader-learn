@@ -18,8 +18,9 @@ void fragment() {
 	vec4 mixed_blood_tex = mix(noise_tex, blood_tex, noise_tex.r);
 	vec4 mixed_tex = mix(base_tex, mixed_blood_tex, noise_tex.r);
 	
-	COLOR.rgb = mixed_tex.rgb;
-	COLOR.a = base_tex.a;
+	COLOR = vec4(
+		mix(base_tex, mixed_tex, dmg_progress).rgb,
+		base_tex.a);
 	
 }
 
