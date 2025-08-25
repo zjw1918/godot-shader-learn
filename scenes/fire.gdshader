@@ -16,9 +16,9 @@ void fragment() {
 		TEXTURE,
 		vec2(UV.x + noise_tex.r * n_scale - n_scale / 2.0, UV.y)
 	);
-	
+
 	vec4 fire_c = mix(fire_c_a, fire_c_b, noise_tex.r);
-	
+
 	//fire_c *= UV.y;
 	// we need dense fire at the bottom, less dense at the top
 	// 1. denser fire at the bottom
